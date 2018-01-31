@@ -4,7 +4,11 @@ This script allows one to submit pasted output of the 'status' console command i
 
 The script uses the simple form from [index.htm](https://github.com/dephekt/esea-steamid-search/blob/master/index.htm) to take pastes of SteamIDs. The form then submits the pasted input to [searchunique.py](https://github.com/dephekt/esea-steamid-search/blob/master/searchunique.py) for processing.
 
+![Submission form](https://github.com/dephekt/esea-steamid-search/blob/master/submit-form.jpg)
+
 After using a regular expression to parse out individual SteamIDs from the input, the script relies on [cfscrape](https://github.com/Anorov/cloudflare-scrape) to defeat Cloudflare's DDoS protection on the ESEA website. Once a session has been established through Cloudflare, which takes about five seconds, the script reuses this valid session to send HTTP GET requests for each SteamID to ESEAs website. Any players found are shown on a new page, including their profile name on ESEA and a link to their profile.
+
+![Search results](https://github.com/dephekt/esea-steamid-search/blob/master/search-results.jpg)
 
 ### Dependencies
 Running the script on a web server requires the following dependencies be installed:
