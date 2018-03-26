@@ -5,12 +5,12 @@ import re
 import cgi
 import sys
 
-print "Content-Type: text/html\n\n"
+print("Content-Type: text/html\n\n")
 form = cgi.FieldStorage()
 if form.getvalue('statustext'):
     textContent = form.getvalue('statustext')
 else:
-    print 'no text submitted'
+    print('no text submitted')
     sys.exit('No text submitted!')
 
 p = re.compile('[0-5]:[01]:\d+')
@@ -25,8 +25,8 @@ for steamid in steamids:
     results = tree.xpath('//a[@class="result"]')
     for result in results:
         userInfo = result.xpath('@href | text()')
-        print 'SteamID: ' + steamid + '</br>'
-        print 'Name: ' + userInfo[1] + '</br>'
+        print('SteamID: ' + steamid + '</br>')
+        print('Name: ' + userInfo[1] + '</br>')
         linkDomainStart = '"https://play.esea.net' + userInfo[0]
         linkDomainEnd = '">https://play.esea.net' + userInfo[0]
-        print 'Profile: <a href=' + linkDomainStart + linkDomainEnd + '</a></br></br>'
+        print('Profile: <a href=' + linkDomainStart + linkDomainEnd + '</a></br></br>')
